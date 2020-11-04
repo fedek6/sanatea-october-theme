@@ -1,0 +1,35 @@
+description = "Main layout"
+==
+<?php
+//////////////////////////////////////////////////////////
+function onStart() 
+{
+    $this['assets_hash'] = 'f3f67621';
+}
+//////////////////////////////////////////////////////////
+?>
+==
+{# 
+    ______           _ _                      
+    | ___ \         | | |                     
+    | |_/ /___  __ _| | |__   ___   _ __ ___  
+    |    // _ \/ _` | | '_ \ / _ \ | '__/ _ \ 
+    | |\ \  __/ (_| | | | | |  __/_| | | (_) |
+    \_| \_\___|\__,_|_|_| |_|\___(_)_|  \___/ 
+                                              
+    @author:    Konrad Fedorczyk <contact@realhe.ro>
+    @about:     Basic main laoyut.
+#}
+{##################################################}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body lang="ro" class="{{ viewBag.page_class }}" style="overflow-y: scroll;">
+        
+        {% partial 'site/header' %}
+
+        <script src="{{ "assets/scripts/app.#{assets_hash}.js"|theme }}"></script>
+    </body>
+</html>

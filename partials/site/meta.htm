@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<title>{{ this.theme.site_name }} – {{ this.page.title }}</title>
+<meta name="description" content="{{ this.page.meta_description|default('Sanatea description.') }}">
+<meta name="title" content="{{ this.page.meta_title|default('Sanatea') }}">
+<meta name="author" content="IQS">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, min-width=320">
+<meta name="generator" content="Realhe.ro">
+<meta name="format-detection" content="telephone=no">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="{{ 'assets/favicon/browserconfig.xml'|theme }}">
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ 'assets/favicon/apple-touch-icon.png'|theme }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ 'assets/favicon/favicon-32x32.png'|theme }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ 'assets/favicon/favicon-16x16.png'|theme }}">
+<link rel="manifest" href="{{ 'assets/favicon/site.webmanifest'|theme }}">
+<link rel="mask-icon" href="{{ 'assets/favicon/safari-pinned-tab.svg'|theme }}" color="#5bbad5">
+<link rel="shortcut icon" href="{{ 'assets/favicon/favicon.ico'|theme }}">
+<link href="{{ "assets/app.#{assets_hash}.css"|theme }}" rel="stylesheet">
