@@ -9,5 +9,16 @@ page_class = "t-front"
 
 [slider]
 maxItems = 8
+
+[categoryArticles]
+maxItems = 3
+categoryId = 0
+removeSliderPosts = 0
 ==
-{% component 'slider' %}
+<div class="{{ viewBag.page_class }}__slider">
+    {% component 'slider' %}
+</div>
+
+<div class="t-front__articles-block">
+    {% component 'categoryArticles' %}
+</div>

@@ -81,5 +81,5 @@ function onEnd()
 </article>
 
 <div class="t-article__articles-block">
-    {% component 'categoryArticles' categoryId=record.category_id %}
+    {% component 'categoryArticles' categoryId=record.category_id disabledIds=record.id %}
 </div>
