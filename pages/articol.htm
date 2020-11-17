@@ -12,16 +12,21 @@ identifierValue = "{{ :slug }}"
 modelKeyColumn = "slug"
 displayColumn = "title"
 notFoundMessage = "Record not found"
+
+[categoryArticles]
+maxItems = 3
+categoryId = 1
+==
+<?php
+//////////////////////////////////////////////////////////
+function onEnd() 
+{
+    $this->page->title = $this->components['builderDetails']->record->attributes["title"];
+}
+//////////////////////////////////////////////////////////
+?>
 ==
 {% set record = builderDetails.record %}
-
-<!-- 
-{% if record %}
-    {{ attribute(record, displayColumn) }}
-{% else %}
-    {{ notFoundMessage }}
-{% endif %}-->
-
 <article class="t-article__body">
     <header class="t-article__body_header">
         <div class="m-article-cover -aspect-3-1">
@@ -66,4 +71,15 @@ notFoundMessage = "Record not found"
             </div>
         </div>
     </header>
+
+    <div class="t-article__body_text_module">
+        {% for part in record.text %}
+            {% partial "dynamic-modules/#{part.template_type}.htm" record=part %}
+        {% endfor %}
+    </div>
+
 </article>
+
+<div class="t-article__articles-block">
+    {% component 'categoryArticles' categoryId=record.category_id %}
+</div>

@@ -1,0 +1,31 @@
+<div class="o-article-block -three-columns">
+    {% for article in __SELF__.articles %}
+    <article class="o-article-block__article">
+        <a class="m-post-cover -square -hover-effect" href="{{ 'articol'|page( { slug: article.slug } ) }}">
+
+            <picture class="m-post-cover__bg">
+                <source 
+                    media="(min-width: 2000px)" 
+                    data-srcset="{{ article.cover|media|resize(960) }} 1x, {{ article.cover|media|resize(1920) }} 2x"
+                >
+                <source 
+                    media="(min-width: 1200px)" 
+                    data-srcset="{{ article.cover|media|resize(480) }} 1x, {{ article.cover|media|resize(960) }} 2x">
+                <img 
+                    alt="{{ article.cover_alt|default(article.title) }}" 
+                    class="lazy" 
+                    src="{{ "assets/images/img_placeholder.png"|theme }}"
+                    data-src="{{ article.cover|media|resize(500) }}"
+                >
+            </picture>
+
+            <header class="m-post-cover__content">
+                <h2 class="m-post-cover__title -center -sm a-post-title">
+                    {{ article.title }}
+                </h2>
+            </header>
+
+        </a>
+    </article>
+    {% endfor %}
+</div>
