@@ -1,0 +1,47 @@
+<div class="{{ viewBag.page_class }}__slider">
+
+    <div class="o-slider -hide-indicator -custom-navigation -mask-fringe-slides"
+        data-flickity='{ "cellAlign": "left", "wrapAround": true, "autoPlay": 5000 }'>
+
+        {% for slide in __SELF__.slides %}
+        <article class="o-slider__slide">
+            <a class="m-post-cover -square -hover-effect" href="{{ 'articol'|page( { slug: slide.slug } ) }}">
+
+                <picture class="m-post-cover__bg">
+                    <source 
+                        media="(min-width: 2000px)" 
+                        data-srcset="{{ slide.cover|media|resize(960) }} 1x, {{ slide.cover|media|resize(1920) }} 2x"
+                    >
+                    <source 
+                        media="(min-width: 1200px)" 
+                        data-srcset="{{ slide.cover|media|resize(480) }} 1x, {{ slide.cover|media|resize(960) }}2x"
+                    >
+                    <img 
+                        alt="{{ slide.title }}" 
+                        class="lazy" 
+                        src="{{ "assets/images/img_placeholder.png"|theme }}"
+                        data-src="{{ slide.cover|media|resize(500) }}"
+                    >
+                </picture>
+
+                <header class="m-post-cover__content">
+                    <span class="m-post-cover__category a-post-category" style="background-color: {{  slide.category.color }};">
+                        {{ slide.category.name }}
+                    </span>
+                    <h2 class="m-post-cover__title a-post-title">
+                        {{ slide.title }}
+                    </h2>
+                </header>
+
+                {% if slide.cover_copyright %}
+                <footer class="m-post-cover__copyright">
+                    <small class="a-copyright">{{ slide.cover_copyright }}</small>
+                </footer>
+                {% endif %}
+
+            </a>
+        </article>
+        {% endfor %}
+        
+    </div>
+</div>
