@@ -4,4 +4,66 @@ layout = "main"
 is_hidden = 0
 
 [viewBag]
+page_class = "t-article"
+
+[builderDetails]
+modelClass = "RealHero\Content\Models\Article"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
 ==
+{% set record = builderDetails.record %}
+
+<!-- 
+{% if record %}
+    {{ attribute(record, displayColumn) }}
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}-->
+
+<article class="t-article__body">
+    <header class="t-article__body_header">
+        <div class="m-article-cover -aspect-3-1">
+            <picture class="m-article-cover__bg">
+                <source 
+                    media="(min-width: 2000px)" 
+                    data-srcset="{{ record.cover|media|resize(2000) }} 1x, 
+                    {{ record.cover|media|resize(2500) }} 2x"
+                >
+                <source 
+                    media="(min-width: 1200px)" 
+                    data-srcset="{{ record.cover|media|resize(1500) }} 1x, 
+                    {{ record.cover|media|resize(2500) }} 2x"
+                >
+                <img 
+                    alt="{{ record.cover_alt|default(slide.title) }}" 
+                    class="lazy" 
+                    src="{{ "assets/images/img_placeholder.png"|theme }}"
+                    data-src="{{ record.cover|media|resize(500) }}"
+                >
+            </picture>
+
+            <header class="m-article-cover__content">
+                <span class="m-article-cover__category a-post-category" style="background-color: {{  record.category.color }};">
+                    {{ record.category.name }}
+                </span>
+                <h1 class="m-article-cover__title a-post-title">
+                    {{ record.title }}
+                </h1>
+            </header>
+
+            <footer class="m-article-cover__copyright">
+                <small class="a-copyright">{{ record.cover_copyright }}</small>
+            </footer>
+        </div>
+
+        <div class="o-teaser">
+            <div class="o-teaser__content">
+                <div class="m-article-teaser">
+                    {{ record.excerpt|raw }}
+                </div>
+            </div>
+        </div>
+    </header>
+</article>

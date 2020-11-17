@@ -1,7 +1,7 @@
 <div class="{{ viewBag.page_class }}__slider">
 
     <div class="o-slider -hide-indicator -custom-navigation -mask-fringe-slides"
-        data-flickity='{ "cellAlign": "left", "wrapAround": true, "autoPlay": 5000 }'>
+        data-flickity='{ "cellAlign": "left", "wrapAround": true, "autoPlay": 3000 }'>
 
         {% for slide in __SELF__.slides %}
         <article class="o-slider__slide">
@@ -14,10 +14,10 @@
                     >
                     <source 
                         media="(min-width: 1200px)" 
-                        data-srcset="{{ slide.cover|media|resize(480) }} 1x, {{ slide.cover|media|resize(960) }}2x"
+                        data-srcset="{{ slide.cover|media|resize(600) }} 1x, {{ slide.cover|media|resize(1200) }}2x"
                     >
                     <img 
-                        alt="{{ slide.title }}" 
+                        alt="{{ slide.cover_alt|default(slide.title) }}" 
                         class="lazy" 
                         src="{{ "assets/images/img_placeholder.png"|theme }}"
                         data-src="{{ slide.cover|media|resize(500) }}"
