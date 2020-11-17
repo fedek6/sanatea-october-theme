@@ -1,0 +1,43 @@
+{%
+    set categoryIcons = {
+        '001': {
+            'name': 'AFECȚIUNI ALE PIELI',
+            'icon': 'category_icon_001.png',
+            'slug': 'afectiuni-ale-pielii'
+        },
+        '002': {
+            'name': 'ARTICULAȚII ȘI OASE',
+            'icon': 'category_icon_002.png',
+            'slug': 'articulatii-si-oase'
+        },
+        '003': {
+            'name': 'UROLOGIE',
+            'icon': 'category_icon_003.png',
+            'slug': 'urologie'
+        },
+        '004': {
+            'name': 'MEMORIE',
+            'icon': 'category_icon_004.png',
+            'slug': 'memorie'
+        }, 
+        '005': {
+            'name': 'ÎNGRIJIREA CORPULUI',
+            'icon': 'category_icon_005.png',
+            'slug': 'ingrijirea-corpului'
+        }, 
+    }
+%}
+
+<div class="o-category-list">
+
+    {% for icon in categoryIcons %}
+    <div class="o-category-list__column">
+        <a href="{{ 'categorie'|page( { slug: icon.slug } ) }}" class="m-category-icon">
+            <div class="m-category-icon__graphic a-icon">
+                <img src="{{ "assets/images/#{icon.icon}"|theme }}">
+            </div>
+            <p class="m-category-icon__title">{{ icon.name }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>

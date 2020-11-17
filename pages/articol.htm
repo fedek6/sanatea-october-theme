@@ -29,7 +29,7 @@ function onEnd()
 {% set record = builderDetails.record %}
 <article class="t-article__body">
     <header class="t-article__body_header">
-        <div class="m-article-cover -aspect-3-1">
+        <div class="m-article-cover -aspect-3-1 {{ record.vertical_cover_orientation }}">
             <picture class="m-article-cover__bg">
                 <source 
                     media="(min-width: 2000px)" 
@@ -83,3 +83,5 @@ function onEnd()
 <div class="t-article__articles-block">
     {% component 'categoryArticles' categoryId=record.category_id disabledIds=record.id %}
 </div>
+
+
