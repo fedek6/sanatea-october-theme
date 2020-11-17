@@ -24,3 +24,8 @@ fields:
         label: Twitter URL
         span: auto
         default: https://www.twitter.com/
+
+    youtube_url:
+        label: Youtube URL
+        span: auto
+        default: https://www.youtube.com/

@@ -1,0 +1,12 @@
+{% for type in __SELF__.categories %}
+<ul class="a-multilevel-menu">
+    <li>
+        <span class="o-main-header__menu-link -down">{{ type.name }}</span>
+        <ul>
+            {% for category in type.categories %}
+            <li><a class="o-main-header__menu-link" href="{{ 'categorie'|page( { slug: category.slug } ) }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+{% endfor %}

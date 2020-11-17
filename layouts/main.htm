@@ -1,4 +1,6 @@
 description = "Main layout"
+
+[categoriesMenu]
 ==
 <?php
 //////////////////////////////////////////////////////////
@@ -29,6 +31,8 @@ function onStart()
     <body lang="ro" class="{{ viewBag.page_class }}" style="overflow-y: scroll;">
         
         {% partial 'site/header' %}
+
+        {% page %}
 
         <script src="{{ "assets/scripts/app.#{assets_hash}.js"|theme }}"></script>
     </body>
