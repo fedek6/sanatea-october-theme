@@ -15,7 +15,11 @@ notFoundMessage = "Record not found"
 
 [categoryArticles]
 maxItems = 3
-categoryId = 1
+offsetItems = 0
+categoryId = 0
+articleType = "standard"
+removeSliderPosts = 0
+template = "three-columns"
 ==
 <?php
 //////////////////////////////////////////////////////////
@@ -83,5 +87,3 @@ function onEnd()
 <div class="t-article__articles-block">
     {% component 'categoryArticles' categoryId=record.category_id disabledIds=record.id %}
 </div>
-
-

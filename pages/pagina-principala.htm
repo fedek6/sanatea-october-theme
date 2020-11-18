@@ -16,6 +16,7 @@ offsetItems = 0
 categoryId = 0
 articleType = "standard"
 removeSliderPosts = 6
+template = "three-columns"
 
 [categoryArticles articles2]
 maxItems = 6
@@ -23,6 +24,19 @@ offsetItems = 3
 categoryId = 0
 articleType = "standard"
 removeSliderPosts = 6
+template = "two-columns"
+
+[specialArticles]
+maxItems = 2
+offsetItems = 0
+articleType = "at_time"
+template = "two-columns"
+
+[specialArticles specialArticles2]
+maxItems = 1
+offsetItems = 0
+articleType = "editor_recommended"
+template = "editor-recommended"
 ==
 <div class="{{ viewBag.page_class }}__slider">
     {% component 'slider' %}
@@ -44,17 +58,34 @@ removeSliderPosts = 6
     <div class="t-front__two-articles-block__title">
       <h2 class="a-midi-title">La timp</h2>
     </div>
-    
+    {% component 'specialArticles' %}
 </div>
 
 <div class="t-front__vertical-category-list">
     {% partial 'verticalcategorylist/default.htm' %}
 </div>
 
-<div class="t-front__articles-block">
-    {% component 'articles2' %}
+<div class="t-front__recommended-article">
+    {% component 'specialArticles2' %}
 </div>
 
+<div class="t-front__advert-articles">
+    <div class="t-front__advert-articles__container">
+      <div class="t-front__advert-articles__advert">
 
+        <div class="m-vertical-advert -limit-66p -limit-height">
+            <h6 class="a-mini-title m-vertical-advert__header">publicitate</h6>
+            <a href="#" target="_blank">
+                <picture class="m-vertical-advert__creation -border">
+                    <source media="(min-width: 1200px)" data-srcset="images/advert_detrical_desktop.jpg">
+                    <img alt="A lazy image" class="lazy" data-src="images/advert_detrical_mobile.jpg">
+                </picture>
+            </a>
+        </div>
 
-{# {% for type in categoriesMenu.categories %} {{ type.name }} {% endfor %} #}
+      </div>
+      <div class="t-front__advert-articles__articles">
+        {% component 'articles2' %}
+      </div>
+    </div>
+</div>

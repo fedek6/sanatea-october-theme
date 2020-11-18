@@ -1,0 +1,45 @@
+<footer class="{{ viewBag.page_class }}__footer">
+    <div class="o-main-footer">
+        <div class="o-main-footer__row-one">
+            <div class="o-main-footer__nav">
+                <div class="o-main-footer__nav__logo">
+                    <div class="a-text-logo">Sanatatea A-Z</div>
+                </div>
+                <div class="o-main-footer__nav__menu-one">
+                    <h4 class="a-nav-header -imunitate o-main-footer__nav__header">
+                        {{ categoriesMenu.categories[0].name }}
+                    </h4>
+                    <nav class="m-column-menu -two-columns">
+                        {% for category in categoriesMenu.categories[0].categories %}
+                            <a class="m-column-menu__link" href="{{ 'categorie'|page( { slug: category.slug } ) }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+                <div class="o-main-footer__nav__menu-two">
+                    <h4 class="a-nav-header -ingrijrea  o-main-footer__nav__header">
+                        {{ categoriesMenu.categories[1].name }}
+                    </h4>
+                    <nav class="m-column-menu">
+                        {% for category in categoriesMenu.categories[1].categories %}
+                            <a class="m-column-menu__link" href="{{ 'categorie'|page( { slug: category.slug } ) }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="o-main-footer__row-two">
+            <div class="o-main-footer__foot">
+                <div class="o-main-footer__foot__company">
+                    copyright hdigital {{ "now"|date("Y") }}
+                </div>
+                <div class="o-main-footer__foot__regulations">
+                    <nav class="a-separated-inline-menu">
+                        <a class="a-separated-inline-menu__item" href="{{ 'privacy'|page }}">Privacy Policy</a> 
+                        <a class="a-separated-inline-menu__item" href="{{ 'revise-privacy'|page }}">Revise privacy statement</a>
+                        <a class="a-separated-inline-menu__item" href="{{ 'contact'|page }}">contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
