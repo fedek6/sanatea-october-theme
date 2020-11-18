@@ -1,4 +1,9 @@
-<div class="o-article-text-module {{ record.modifiers }}">
+{% set modifiers = record.modifiers %}
+
+{% if record.advert_enabled == 0  %}
+   {% set modifiers = modifiers ~ ' -no-advert' %}
+{% endif %}
+<div class="o-article-text-module {{ modifiers }}">
     <div class="o-article-text-module__text">
         <div class="m-article-body">
             <!-- This must be generic HTML! -->
@@ -6,6 +11,7 @@
             <!-- This must be generic HTML! -->
         </div>
     </div>
+    {% if record.advert_enabled == 1  %}
     <div class="o-article-text-module__aside">
         <div class="m-vertical-advert">
             <h6 class="a-mini-title m-vertical-advert__header">publicitate</h6>
@@ -14,4 +20,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 </div>

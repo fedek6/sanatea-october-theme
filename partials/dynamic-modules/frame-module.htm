@@ -1,0 +1,24 @@
+{% set modifiers = record.modifiers %}
+
+{% if record.illustration is empty  %}
+   {% set modifiers = modifiers ~ ' -no-illustration' %}
+{% endif %}
+<div class="o-article-frame-module {{ record.modifiers }}">
+    <div class="o-article-frame-module__container">
+        <div class="o-article-frame-module__text">
+            <div class="m-article-body">
+                <!-- This must be generic HTML! -->
+                {{ record.text_contents|raw }}
+                <!-- This must be generic HTML! -->
+            </div>
+        </div> 
+        {% if record.illustration is not empty  %}
+        <div class="o-article-frame-module__illustration">
+            <picture class="a-illustration">
+                <source media="(min-width: 1200px)" data-srcset="{{ record.illustration|media|resize(1000) }}">
+                <img alt="" class="lazy" data-src="{{ record.illustration|media|resize(500) }}">
+            </picture>
+        </div>   
+        {% endif %}
+    </div> 
+</div>
