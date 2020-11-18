@@ -8,19 +8,28 @@ is_hidden = 0
 page_class = "t-front"
 
 [slider]
-maxItems = 8
+maxItems = 6
 
-[categoryArticles]
+[categoryArticles articles1]
 maxItems = 3
+offsetItems = 0
 categoryId = 0
-removeSliderPosts = 0
+articleType = "standard"
+removeSliderPosts = 6
+
+[categoryArticles articles2]
+maxItems = 6
+offsetItems = 3
+categoryId = 0
+articleType = "standard"
+removeSliderPosts = 6
 ==
 <div class="{{ viewBag.page_class }}__slider">
     {% component 'slider' %}
 </div>
 
 <div class="t-front__articles-block">
-    {% component 'categoryArticles' %}
+    {% component 'articles1' %}
 </div>
 
 <div class="t-front__vertical-advert-block">
@@ -31,6 +40,21 @@ removeSliderPosts = 0
     </div>
 </div>
 
+<div class="t-front__two-articles-block">
+    <div class="t-front__two-articles-block__title">
+      <h2 class="a-midi-title">La timp</h2>
+    </div>
+    
+</div>
+
 <div class="t-front__vertical-category-list">
     {% partial 'verticalcategorylist/default.htm' %}
 </div>
+
+<div class="t-front__articles-block">
+    {% component 'articles2' %}
+</div>
+
+
+
+{# {% for type in categoriesMenu.categories %} {{ type.name }} {% endfor %} #}
