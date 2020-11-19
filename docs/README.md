@@ -238,3 +238,7 @@ Finally construct your validation object, just like that:
 /** @var object $validation */
 $validation = \Validator::make($formData, $rules,  \Lang::get('realhero.iqsextensions::validation') )
 ```
+
+## Pagination example
+
+https://octobercms.com/docs/services/pagination
