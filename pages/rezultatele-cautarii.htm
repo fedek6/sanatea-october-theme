@@ -1,8 +1,61 @@
 title = "Rezultatele cautarii"
-url = "/rezultatele-cautarii"
+url = "/rezultatele-cautarii/:page?"
 layout = "main"
 is_hidden = 0
 
 [viewBag]
 page_class = "t-category"
+
+[builderList]
+modelClass = "RealHero\Content\Models\Article"
+scope = "scopeSearch"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "articol"
+detailsKeyColumn = "slug"
+detailsUrlParameter = ":slug"
+recordsPerPage = 5
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
 ==
+<?php
+//////////////////////////////////////////////////////////
+function onEnd() 
+{   
+    $title = 'Rezultatele cautarii: ' . Input::get('q');
+    $this->page->title = $title;
+
+    $this['header'] = $title;
+    $this['q'] = Input::get('q');
+}
+//////////////////////////////////////////////////////////
+?>
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+{% if records is not empty %}
+<div class="t-category__info">
+    <h1 class="a-post-category" style="color: #2b2e31">{{ header }}</h1>
+</div>
+
+<div class="t-category__article-listing">
+    <div class="o-article-listing">
+        {% for record in records %}
+        <div class="o-article-listing__content">
+            {% partial 'listing/article' article=record %}
+        </div>
+        {% endfor %}
+
+        <div class="o-article-listing__footer">
+            {% partial 'listing/pagination' records=records param=q %}
+        </div>
+    </div>
+</div> 
+{% endif %}

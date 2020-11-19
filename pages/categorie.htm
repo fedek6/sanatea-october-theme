@@ -40,7 +40,7 @@ function onEnd()
 
 {% if records is not empty %}
 <div class="t-category__info">
-    <h1 class="a-post-category" style="background-color: #f59562;">{{ records[0].category.name }}</h1>
+    <h1 class="a-post-category" style="background-color: {{ records[0].category.color }}">{{ records[0].category.name }}</h1>
 </div>
 
 <div class="t-category__article-listing">

@@ -1,0 +1,14 @@
+title = "Rezultatele cautarii"
+url = "/rezultatele-cautarii-backup"
+layout = "main"
+is_hidden = 0
+
+[viewBag]
+page_class = "t-category"
+
+[articleSearch]
+==
+
+{% for article in articleSearch.results %}
+    {{ article.title }}<br>
+{% endfor %}
