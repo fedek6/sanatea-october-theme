@@ -1,0 +1,35 @@
+<div class="o-recommended-article">
+    <h6 class="a-mini-title o-recommended-article__category-mobile"></h6>
+    <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(article, detailsKeyColumn) }) }}"
+        class="o-recommended-article__link">
+        <div class="o-recommended-article__illustration">
+            <figure id="article-id-{{ article.slug }}" class="m-post-cover -aspect-64-39 -hover-effect">
+                <picture class="m-post-cover__bg">
+                    <source media="(min-width: 2000px)"
+                        data-srcset="{{ article.cover|media|resize(1000) }} 1x, {{ article.cover|media|resize(2000) }} 2x">
+                    <source media="(min-width: 1200px)"
+                        data-srcset="{{ article.cover|media|resize(800) }} 1x, {{ article.cover|media|resize(1600) }} 2x">
+
+                    <img alt="{{ article.cover_alt|default(article.title) }}" class="lazy"
+                        src="{{ "assets/images/img_placeholder.png"|theme }}"
+                        data-src="{{ article.cover|media|resize(500) }}">
+                </picture>
+            </figure>
+        </div>
+        <div class="o-recommended-article__category js-trigger-hover" aria-controls="article-id-{{ article.slug }}">
+            <!-- <h6 class="a-mini-title">Editorii recomandă</h6> -->
+        </div>
+        <div class="o-recommended-article__description">
+            <header class="m-external-post-description js-trigger-hover" aria-controls="article-id-{{ article.slug }}">
+                <h2 class="m-external-post-description__title a-post-title">
+                    {{ article.title }}
+                </h2>
+                <div class="m-external-post-description__text">
+                    <p>
+                        {{ article.excerpt|raw|striptags|truncateWhole(35) }} >>
+                    </p>
+                </div>
+            </header>
+        </div>
+    </a>
+</div>
