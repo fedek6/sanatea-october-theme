@@ -15,9 +15,13 @@
     <div class="o-article-text-module__aside">
         <div class="m-vertical-advert">
             <h6 class="a-mini-title m-vertical-advert__header">publicitate</h6>
-            <div class="m-vertical-advert__dynamic-container js-dynamic-advert" aria-busy="true">
-
-            </div>
+            <div 
+                    class="m-vertical-advert__dynamic-container js-dynamic-advert" 
+                    aria-busy="true" 
+                    data-advert-id="{{ record.selected_advert }}"
+                    data-api-url="{{ url('/') }}"
+                >
+            </div> 
         </div>
     </div>
     {% endif %}

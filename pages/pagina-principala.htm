@@ -49,7 +49,13 @@ template = "editor-recommended"
 <div class="t-front__vertical-advert-block">
     <div class="m-vertical-advert -horizontal">
         <h6 class="a-mini-title m-vertical-advert__header">publicitate</h6>
-        <div class="m-vertical-advert__dynamic-container js-dynamic-advert" aria-busy="true" data-orientation="horizontal">
+        <div 
+            class="m-vertical-advert__dynamic-container js-dynamic-advert" 
+            aria-busy="true" 
+            data-orientation="horizontal" 
+            data-placement="main-page"
+            data-api-url="{{ url('/') }}"
+        >
 
         </div>
     </div>
@@ -76,7 +82,13 @@ template = "editor-recommended"
 
         <div class="m-vertical-advert -limit-66p -limit-height">
             <h6 class="a-mini-title m-vertical-advert__header">publicitate</h6>
-            <div class="m-vertical-advert__dynamic-container js-dynamic-advert" aria-busy="true" data-orientation="vertical">
+            <div 
+                class="m-vertical-advert__dynamic-container js-dynamic-advert" 
+                aria-busy="true" 
+                data-orientation="vertical" 
+                data-placement="main-page"
+                data-api-url="{{ url('/') }}"
+            >
 
             </div>
         </div>
