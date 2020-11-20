@@ -31,7 +31,7 @@
 <div class="o-category-list">
 
     {% for icon in categoryIcons %}
-    <div class="o-category-list__column">
+    <div class="o-category-list__column {% if loop.last %}-centered{% endif %}">
         <a href="{{ 'categorie'|page( { slug: icon.slug } ) }}" class="m-category-icon">
             <div class="m-category-icon__graphic a-icon">
                 <img src="{{ "assets/images/#{icon.icon}"|theme }}">

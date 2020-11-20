@@ -1,5 +1,5 @@
 {% for type in __SELF__.categories %}
-<ul class="a-multilevel-menu">
+<ul class="a-multilevel-menu" tabindex="{{ loop.index }}">
     <li>
         <span class="o-main-header__menu-link -down -main">{{ type.name }}</span>
         <ul>
