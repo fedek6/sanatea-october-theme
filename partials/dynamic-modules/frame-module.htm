@@ -1,9 +1,13 @@
 {% set modifiers = record.modifiers %}
 
+{% for modifier in record.predefined_modifiers %}
+    {% set modifiers = modifiers ~ ' ' ~ modifier %}
+{% endfor %}
+
 {% if record.illustration is empty  %}
    {% set modifiers = modifiers ~ ' -no-illustration' %}
 {% endif %}
-<div class="o-article-frame-module {{ record.modifiers }}">
+<div class="o-article-frame-module {{ modifiers }}">
     <div class="o-article-frame-module__container">
         <div class="o-article-frame-module__text">
             <div class="m-article-body">
